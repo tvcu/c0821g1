@@ -10,6 +10,8 @@ public class UserRepository implements IUserRepository {
 
     public UserRepository() {
         userList = new ArrayList<>();
+        userList.add(new User(1,"Cu Tran",1992,"0387747909","Ha Tinh"));
+        userList.add(new User(2,"Cu Tran",1992,"0387747909","Ha Tinh"));
     }
 
     @Override
@@ -22,8 +24,24 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public void add(User user) {
-        userList.add(user);
+    public List<User> getUsers() {
+        return userList;
+    }
+
+    @Override
+    public boolean exist(long id) {
+        return getById(id) != null;
+    }
+
+    @Override
+    public void add(User newUser) {
+        userList.add(newUser);
+    }
+
+    @Override
+    public void update(User user) {
+        User oldUser = getById(user.getId());
+        User.transferFields(oldUser, user);
     }
 
 }

@@ -18,6 +18,9 @@ public class MenuView {
                 case 2:
                     userView.addUser();
                     break;
+                case 3:
+                    userView.updateUser();
+                    break;
             }
             System.out.print("nhan y de tiep tuc:");
             String character = scanner.next();
@@ -30,6 +33,7 @@ public class MenuView {
         System.out.println("-----------------Welcome to Library Book C0821G1--------------------");
         System.out.println("1. Danh sach nguoi dung:");
         System.out.println("2. Them nguoi dung:");
+        System.out.println("3. Sua thong nguoi dung:");
         System.out.println("0. Thoat chuong trinh:");
         System.out.println("--------------------------------------------------------------------");
         System.out.print("Chon chuc nang:");

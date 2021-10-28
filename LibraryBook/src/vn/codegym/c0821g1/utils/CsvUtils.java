@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVFile {
+public class CsvUtils {
     public static List<String> read(String filePath) throws IOException {
         List<String> records = new ArrayList<>();
         File file = new File(filePath);

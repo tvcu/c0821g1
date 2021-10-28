@@ -4,13 +4,11 @@ import vn.codegym.c0821g1.exception.LibraryBookException;
 import vn.codegym.c0821g1.model.Role;
 import vn.codegym.c0821g1.model.User;
 import vn.codegym.c0821g1.model.UserStatus;
-import vn.codegym.c0821g1.utils.CSVFile;
+import vn.codegym.c0821g1.utils.CsvUtils;
 import vn.codegym.c0821g1.utils.DateUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 public class UserRepository implements IUserRepository {
@@ -34,7 +32,7 @@ public class UserRepository implements IUserRepository {
     public List<User> getUsers() {
         List<User> newUserList = new ArrayList<>();
         try {
-            List<String> records = CSVFile.read(USER_PATH);
+            List<String> records = CsvUtils.read(USER_PATH);
             for (String record : records) {
                 newUserList.add(new User(record));
             }
@@ -53,7 +51,7 @@ public class UserRepository implements IUserRepository {
     @Override
     public void add(User newUser) throws IOException {
         userList.add(newUser);
-        CSVFile.write(USER_PATH, userList);
+        CsvUtils.write(USER_PATH, userList);
     }
 
     @Override

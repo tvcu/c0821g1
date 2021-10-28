@@ -6,6 +6,7 @@ import vn.codegym.c0821g1.model.UserStatus;
 import vn.codegym.c0821g1.services.IUserService;
 import vn.codegym.c0821g1.services.UserService;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,13 +25,13 @@ public class UserView {
         System.out.print("Ho va Ten:");
         String fullName = scanner.next();
         System.out.print("Nam Sinh:");
-        int birthDay = scanner.nextInt();
+        String birthDay = scanner.next();
         System.out.print("So dien thoai:");
         String phoneNumber = scanner.next();
         System.out.print("Dia Chi:");
         String address = scanner.next();
 
-        User user = new User(id, fullName, birthDay, phoneNumber, address);
+        User user = new User(id, fullName, new Date(birthDay), phoneNumber, address);
         user.setRole(Role.USER);
         user.setStatus(UserStatus.AVAILABLE);
 
@@ -63,7 +64,7 @@ public class UserView {
         System.out.print("Ho va Ten:");
         String fullName = scanner.next();
         System.out.print("Nam Sinh:");
-        int birthDay = scanner.nextInt();
+        String birthDay = scanner.next();
         System.out.print("So dien thoai:");
         String phoneNumber = scanner.next();
         System.out.print("Dia Chi:");
@@ -71,7 +72,7 @@ public class UserView {
         System.out.print("Trang thai (1:Lock; 2:Available)");
         int status = scanner.nextInt();
 
-        User user = new User(id, fullName, birthDay, phoneNumber, address);
+        User user = new User(id, fullName, new Date(birthDay), phoneNumber, address);
         user.setStatus(UserStatus.fromValue(status));
         try {
             userService.updateUser(user);

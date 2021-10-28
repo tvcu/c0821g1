@@ -8,4 +8,5 @@ public class Book {
     private String author;
     private Type type;
     private Date publicationAt;
+
 }
